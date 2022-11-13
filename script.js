@@ -28,15 +28,17 @@ function getUserAnswer(promptAnswer) {
     
 }
 
+function round(computer, user) {
+
+}
 
 
-
-let computerChoice;
 let computerCount = 0;
 let userCount = 0;
 
 for (let i = 0; i < 5; i ++){
     let userAnswer;
+    let computerChoice;
     while (userAnswer === undefined) {
         userAnswer = getUserAnswer(window.prompt('Rock! paper! scissors!'));
         computerChoice = getComputerAnswer();
