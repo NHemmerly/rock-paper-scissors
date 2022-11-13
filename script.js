@@ -1,6 +1,6 @@
 //Random number generator selects a number from 0 to 2
 function getComputerAnswer() {
-    let answer = Math.floor(Math.random() * 2);
+    let answer = Math.floor(Math.random() * 3);
     let answerWord = '';
 
     if (answer === 0) 
@@ -18,3 +18,5 @@ function getComputerAnswer() {
          
     return answerWord;
 }
+
+console.log(getComputerAnswer());
