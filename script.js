@@ -6,8 +6,8 @@ function getComputerAnswer() {
 }
 
 function getUserAnswer(promptAnswer) {
-    if (typeof promptAnswer === 'string') {
-        promptAnswer = promptAnswer.toLowerCase();
+    promptAnswer = promptAnswer.toLowerCase();
+    if (promptAnswer === 'rock' || promptAnswer === 'paper' || promptAnswer === 'scissors') {
 
         if (promptAnswer === 'rock') 
         {
@@ -28,15 +28,20 @@ function getUserAnswer(promptAnswer) {
     
 }
 
-let userAnswer;
+
+
+
 let computerChoice;
 let computerCount = 0;
 let userCount = 0;
 
-while (computerCount < 5 || userCount < 5){
-    userAnswer = getUserAnswer(window.prompt('Rock! paper! scissors!'));
-    computerChoice = getComputerAnswer();
-
+for (let i = 0; i < 5; i ++){
+    let userAnswer;
+    while (userAnswer === undefined) {
+        userAnswer = getUserAnswer(window.prompt('Rock! paper! scissors!'));
+        computerChoice = getComputerAnswer();
+    }
+    
     switch (userAnswer) {
         case 0:
             if (computerChoice === 1)
@@ -89,9 +94,15 @@ while (computerCount < 5 || userCount < 5){
     }
 }
 
-if (userCount === 5) {
-    console.log("You win!");
+if (userCount > computerCount)
+{
+    console.log(`You win! score: ${userCount} to ${computerCount}`);
 }
-else {
-    console.log('You Lose!');
+else if (computerCount > userCount)
+{
+    console.log(`Computer wins! score: ${userCount} to ${computerCount}`);
+}
+else
+{
+    console.log(`It's a tie! score: ${userCount} to ${computerCount}`);
 }
