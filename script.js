@@ -30,70 +30,66 @@ function getUserAnswer(promptAnswer) {
 
 function round(computer, user) {
 
+    let result;
+
+    switch (user) {
+        
+        case 0:
+            if (computer === 1)
+            {
+                result = 0;
+            }
+            else if (computer === 2)
+            {
+                result = 1;
+            }
+            break;
+        case 1:
+            if (computer === 0)
+            {
+                result = 1;
+            }
+            else if (computer === 2)
+            {
+                result = 0;
+            }
+            break;
+        case 2:
+            if (computer === 0)
+            {
+                result = 0;
+            }
+            else if (computer  === 1)
+            {
+                result = 1;
+            }
+            break;
+        default:
+            result = 2;
+            break;
+    }
+    return result;
 }
+
+function game()
 
 
 let computerCount = 0;
 let userCount = 0;
 
-for (let i = 0; i < 5; i ++){
+for (let i = 0; i < 5; i++){
     let userAnswer;
     let computerChoice;
+
+    computerChoice = getComputerAnswer();
+    
     while (userAnswer === undefined) {
         userAnswer = getUserAnswer(window.prompt('Rock! paper! scissors!'));
-        computerChoice = getComputerAnswer();
     }
-    
-    switch (userAnswer) {
-        case 0:
-            if (computerChoice === 1)
-            {
-                console.log("Lose!");
-                computerCount++;
-            }
-            else if (computerChoice === 2)
-            {
-                console.log("Win!");
-                userCount++;
-            }
-            else {
-                console.log("Tie!");
-            }
-            break;
-        case 1:
-            if (computerChoice === 0)
-            {
-                console.log("Win!");
-                userCount++;
-            }
-            else if (computerChoice === 2)
-            {
-                console.log("Lose!");
-                computerCount++;
-            }
-            else 
-            {
-                console.log("Tie!");
-            }
-            break;
-        default:
-            if (computerChoice === 0)
-            {
-                console.log("Lose!");
-                computerCount++;
-            }
-            else if (computerChoice === 1)
-            {
-                console.log("Win!");
-                userCount++;
-            }
-            else
-            {
-                console.log("Tie!");
-            }
 
-            break;
-    }
+    let outcome = round(computerChoice, userAnswer);
+    
+    
 }
 
 if (userCount > computerCount)
