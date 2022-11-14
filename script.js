@@ -1,93 +1,91 @@
 //Random number generator selects a number from 0 to 2
 function getComputerAnswer() {
     let answer = Math.floor(Math.random() * 3);
-         
+    
+    switch (answer){
+        case 0:
+            answer = 'rock';
+            break;
+        case 1:
+            answer = 'paper';
+            break;
+        default:
+            answer = 'scissors';
+            break;
+    }
     return answer;
 }
 
-function getUserAnswer(promptAnswer) {
+function getUserAnswer() {
+
+    let promptAnswer = window.prompt('Rock! paper! scissors!');
     promptAnswer = promptAnswer.toLowerCase();
-    if (promptAnswer === 'rock' || promptAnswer === 'paper' || promptAnswer === 'scissors') {
 
-        if (promptAnswer === 'rock') 
+    while (true)
+    {
+        if (promptAnswer === 'rock')
         {
-            promptAnswer = 0;
+            break;
         }
-        else if (promptAnswer === 'paper') 
+        else if (promptAnswer === 'paper')
         {
-            promptAnswer = 1;
+            break;
         }
-        else{
-            promptAnswer = 2;
+        else if (promptAnswer === 'scissors')
+        {
+            break;
         }
-
-        return promptAnswer;
+        console.log("Please enter 'rock', 'paper', or 'scissors'");
+        promptAnswer = window.prompt('Rock! paper! scissors!');
+        promptAnswer = promptAnswer.toLowerCase(); 
+        continue;
     }
-
-    console.log("Please enter either 'rock', 'paper', or 'scissors.'")
     
+    return promptAnswer;
 }
 
 function round(computer, user) {
 
-    let result;
-
     switch (user) {
         
-        case 0:
-            if (computer === 1)
+        case 'rock':
+            if (computer === 'paper')
             {
-                result = 0;
+                computerCount++;
+                return `You Lose! ${computer} covers ${user}!`;
             }
-            else if (computer === 2)
+            else if (computer === 'scissors')
             {
-                result = 1;
+                userCount++;
+                return `You Win! ${user} smashes ${computer}!`;
             }
-            break;
-        case 1:
-            if (computer === 0)
+            return `${user} to ${computer}! It's a tie!`;
+        case 'paper':
+            if (computer === 'rock')
             {
-                result = 1;
+                userCount++;
+                return `You Win! ${user} covers ${computer}!`;
             }
-            else if (computer === 2)
+            else if (computer === 'scissors')
             {
-                result = 0;
+                computerCount++;
+                return `You Lose! ${computer} cuts ${user}!`;
             }
-            break;
-        case 2:
-            if (computer === 0)
+            return `${user} to ${computer}! It's a tie!`;
+        case 'scissors':
+            if (computer === 'rock')
             {
-                result = 0;
+                computerCount++;
+                return `You Lose! ${computer} smashes ${user}!`;
             }
-            else if (computer  === 1)
+            else if (computer  === 'paper')
             {
-                result = 1;
+                userCount++;
+                return `You Win! ${user} cuts ${computer}!`;
             }
-            break;
-        default:
-            result = 2;
-            break;
-    }
-    return result;
-}
-
-function game(outcome) {
-    if (outcome === 0) 
-    {
-        console.log("You Lose!");
-        computerCount++;
-    }
-    else if (outcome === 1)
-    {
-        console.log("You Win!");
-        userCount++;
-    }
-    else
-    {
-        console.log("Tie!")
+            return `${user} to ${computer}! It's a tie!`; 
     }
 }
-
 
 let computerCount = 0;
 let userCount = 0;
@@ -96,16 +94,11 @@ for (let i = 0; i < 5; i++){
     let userAnswer;
     let computerChoice;
 
+    userAnswer = getUserAnswer();
+    
     computerChoice = getComputerAnswer();
-    
-    while (userAnswer === undefined) {
-        userAnswer = getUserAnswer(window.prompt('Rock! paper! scissors!'));
-    }
 
-    let outcome = round(computerChoice, userAnswer);
-    game(outcome);
-    
-    
+    console.log(round(computerChoice, userAnswer));
 }
 
 if (userCount > computerCount)
