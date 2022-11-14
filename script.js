@@ -71,7 +71,22 @@ function round(computer, user) {
     return result;
 }
 
-function game()
+function game(outcome) {
+    if (outcome === 0) 
+    {
+        console.log("You Lose!");
+        computerCount++;
+    }
+    else if (outcome === 1)
+    {
+        console.log("You Win!");
+        userCount++;
+    }
+    else
+    {
+        console.log("Tie!")
+    }
+}
 
 
 let computerCount = 0;
@@ -88,6 +103,7 @@ for (let i = 0; i < 5; i++){
     }
 
     let outcome = round(computerChoice, userAnswer);
+    game(outcome);
     
     
 }
