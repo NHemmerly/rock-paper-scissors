@@ -87,29 +87,34 @@ function round(computer, user) {
     }
 }
 
+function game() {
+    
+    for (let i = 0; i < 5; i++){
+        let userAnswer;
+        let computerChoice;
+
+        userAnswer = getUserAnswer();
+        computerChoice = getComputerAnswer();
+
+        console.log(round(computerChoice, userAnswer));
+    }
+
+    if (userCount > computerCount)
+    {
+        console.log(`You win! score: ${userCount} to ${computerCount}`);
+    }
+    else if (computerCount > userCount)
+    {
+        console.log(`Computer wins! score: ${userCount} to ${computerCount}`);
+    }
+    else
+    {
+        console.log(`It's a tie! score: ${userCount} to ${computerCount}`);
+    }
+}
+
 let computerCount = 0;
 let userCount = 0;
 
-for (let i = 0; i < 5; i++){
-    let userAnswer;
-    let computerChoice;
+game();
 
-    userAnswer = getUserAnswer();
-    
-    computerChoice = getComputerAnswer();
-
-    console.log(round(computerChoice, userAnswer));
-}
-
-if (userCount > computerCount)
-{
-    console.log(`You win! score: ${userCount} to ${computerCount}`);
-}
-else if (computerCount > userCount)
-{
-    console.log(`Computer wins! score: ${userCount} to ${computerCount}`);
-}
-else
-{
-    console.log(`It's a tie! score: ${userCount} to ${computerCount}`);
-}
