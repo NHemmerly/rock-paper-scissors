@@ -44,7 +44,7 @@ function getUserAnswer() {
     return promptAnswer;
 }
 
-function round(computer, user) {
+function round(e) {
 
     switch (user) {
         
@@ -120,6 +120,9 @@ function game() {
         console.log(`It's a tie! score: ${userCount} to ${computerCount}`);
     }
 }
+
+const btns = document.querySelectorAll('.btn');
+btns.forEach(btn => btn.addEventListener('click', round));
 
 let computerCount = 0;
 let userCount = 0;
