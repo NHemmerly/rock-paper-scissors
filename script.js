@@ -89,15 +89,23 @@ function round(computer, user) {
 
 function game() {
     
-    for (let i = 0; i < 5; i++){
-        let userAnswer;
-        let computerChoice;
+    //for (let i = 0; i < 5; i++){
+     //   let userAnswer;
+     //   let computerChoice;
 
-        userAnswer = getUserAnswer();
-        computerChoice = getComputerAnswer();
+     //   userAnswer = getUserAnswer();
+     //   computerChoice = getComputerAnswer();
 
-        console.log(round(computerChoice, userAnswer));
-    }
+     //   console.log(round(computerChoice, userAnswer));
+     //}
+
+    let userAnswer;
+    let computerChoice;
+
+    userAnswer = getUserAnswer();
+    computerChoice = getComputerAnswer();
+
+    console.log(round(computerChoice, userAnswer));
 
     if (userCount > computerCount)
     {
