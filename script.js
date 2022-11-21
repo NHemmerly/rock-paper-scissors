@@ -46,45 +46,11 @@ function getUserAnswer() {
 
 function round(e) {
 
-    switch (user) {
-        
-        case 'rock':
-            if (computer === 'paper')
-            {
-                computerCount++;
-                return `You Lose! ${computer} covers ${user}!`;
-            }
-            else if (computer === 'scissors')
-            {
-                userCount++;
-                return `You Win! ${user} smashes ${computer}!`;
-            }
-            return `${user} to ${computer}! It's a tie!`;
-        case 'paper':
-            if (computer === 'rock')
-            {
-                userCount++;
-                return `You Win! ${user} covers ${computer}!`;
-            }
-            else if (computer === 'scissors')
-            {
-                computerCount++;
-                return `You Lose! ${computer} cuts ${user}!`;
-            }
-            return `${user} to ${computer}! It's a tie!`;
-        case 'scissors':
-            if (computer === 'rock')
-            {
-                computerCount++;
-                return `You Lose! ${computer} smashes ${user}!`;
-            }
-            else if (computer  === 'paper')
-            {
-                userCount++;
-                return `You Win! ${user} cuts ${computer}!`;
-            }
-            return `${user} to ${computer}! It's a tie!`; 
-    }
+    let computerChoice = getComputerAnswer();
+    let userChoice = (e.target.innerText).toLowerCase();
+
+    console.log(userChoice);
+    console.log(computerChoice);
 }
 
 function game() {
