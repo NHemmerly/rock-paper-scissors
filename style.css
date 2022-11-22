@@ -1,6 +1,10 @@
 body {
     display: flex;
+    background-color: #343434;
     justify-content: center;
+    align-content: center;
+    height: 100vh;
+    color: antiquewhite;
 }
 
 .container {
@@ -17,6 +21,13 @@ body {
 
 .scores {
     display: flex;
+    justify-content: space-around;
+}
+
+.u-score, 
+.cpu-score {
+    display: flex;
+    flex-direction: column;
 }
 
 button {
