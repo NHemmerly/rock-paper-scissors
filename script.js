@@ -25,32 +25,32 @@ function playRound(e) {
         case 'Rock':
             if (computerChoice === 'scissors') {
                 userCount++;
-                return 1;
+                break;
             } else if (computerChoice === 'paper') {
                 computerCount++;
-                return 0;
+                break;
             } else {
-                return 2;
+                break;
             }
         case 'Paper':
             if (computerChoice === 'rock') {
                 userCount++;
-                return 1;
+                break;
             } else if (computerChoice === 'scissors') {
                 computerCount++;
-                return 0;
+                break;
             } else {
-                return 2;
+                break;
             }
         case 'Scissors':
             if (computerChoice === 'paper') {
                 userCount++;
-                return 1;
+                break;
             } else if (computerChoice === 'rock') {
                 computerCount++;
-                return 0;
+                break;
             } else {
-                return 2;
+                break;
             }
     }
 
@@ -60,19 +60,10 @@ function playRound(e) {
 
 function game() {
 
-    
-
     while (userCount !== 5 || computerCount !== 5) {
 
-        let round = playRound(e);
-        //If 1, user wins. If 0 user loses. If 2 it's a tie!
-        if (round === 1) {
-            console.log('You Win!');
-        } else if (round === 0) {
-            console.log('You Lose!');
-        } else if (round === 2) {
-            console.log('Tie!');
-        }
+        console.log(userCount);
+        console.log(computerCount);
     }
 
     if (userCount > computerCount)
@@ -90,10 +81,12 @@ function game() {
 }
 
 const btns = document.querySelectorAll('.btn');
-btns.forEach(btn => btn.addEventListener('click', playRound));
+
 
 let computerCount = 0;
 let userCount = 0;
+
+btns.forEach(btn => btn.addEventListener('click', playRound));
 
 game();
 
