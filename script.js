@@ -16,62 +16,64 @@ function getComputerAnswer() {
     return answer;
 }
 
-function getUserAnswer() {
-
-    let promptAnswer = window.prompt('Rock! paper! scissors!');
-    promptAnswer = promptAnswer.toLowerCase();
-
-    while (true)
-    {
-        if (promptAnswer === 'rock')
-        {
-            break;
-        }
-        else if (promptAnswer === 'paper')
-        {
-            break;
-        }
-        else if (promptAnswer === 'scissors')
-        {
-            break;
-        }
-        console.log("Please enter 'rock', 'paper', or 'scissors'");
-        promptAnswer = window.prompt('Rock! paper! scissors!');
-        promptAnswer = promptAnswer.toLowerCase(); 
-        continue;
-    }
-    
-    return promptAnswer;
-}
-
-function round(e) {
+function playRound(e) {
 
     let computerChoice = getComputerAnswer();
-    let userChoice = (e.target.innerText).toLowerCase();
+    let userChoice = (e.target.innerText);
+
+    switch (userChoice) {
+        case 'Rock':
+            if (computerChoice === 'scissors') {
+                userCount++;
+                return 1;
+            } else if (computerChoice === 'paper') {
+                computerCount++;
+                return 0;
+            } else {
+                return 2;
+            }
+        case 'Paper':
+            if (computerChoice === 'rock') {
+                userCount++;
+                return 1;
+            } else if (computerChoice === 'scissors') {
+                computerCount++;
+                return 0;
+            } else {
+                return 2;
+            }
+        case 'Scissors':
+            if (computerChoice === 'paper') {
+                userCount++;
+                return 1;
+            } else if (computerChoice === 'rock') {
+                computerCount++;
+                return 0;
+            } else {
+                return 2;
+            }
+    }
 
     console.log(userChoice);
     console.log(computerChoice);
 }
 
 function game() {
+
     
-    //for (let i = 0; i < 5; i++){
-     //   let userAnswer;
-     //   let computerChoice;
 
-     //   userAnswer = getUserAnswer();
-     //   computerChoice = getComputerAnswer();
+    while (userCount !== 5 || computerCount !== 5) {
 
-     //   console.log(round(computerChoice, userAnswer));
-     //}
-
-    let userAnswer;
-    let computerChoice;
-
-    userAnswer = getUserAnswer();
-    computerChoice = getComputerAnswer();
-
-    console.log(round(computerChoice, userAnswer));
+        let round = playRound(e);
+        //If 1, user wins. If 0 user loses. If 2 it's a tie!
+        if (round === 1) {
+            console.log('You Win!');
+        } else if (round === 0) {
+            console.log('You Lose!');
+        } else if (round === 2) {
+            console.log('Tie!');
+        }
+    }
 
     if (userCount > computerCount)
     {
@@ -88,7 +90,7 @@ function game() {
 }
 
 const btns = document.querySelectorAll('.btn');
-btns.forEach(btn => btn.addEventListener('click', round));
+btns.forEach(btn => btn.addEventListener('click', playRound));
 
 let computerCount = 0;
 let userCount = 0;
