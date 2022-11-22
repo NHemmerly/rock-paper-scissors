@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.btns {
+    display: flex;
+    gap: 30px;
+}
+
+.scores {
+    display: flex;
+}
+
+button {
+    width: 200px;
+    height: 200px;
+}
