@@ -25,46 +25,50 @@ function playRound(e) {
         case 'Rock':
             if (computerChoice === 'scissors') {
                 userCount++;
+                console.log('Win!');
                 break;
             } else if (computerChoice === 'paper') {
                 computerCount++;
+                console.log('Lose!');
                 break;
             } else {
+                console.log('Tie!');
                 break;
             }
         case 'Paper':
             if (computerChoice === 'rock') {
                 userCount++;
+                console.log('Win!');
                 break;
             } else if (computerChoice === 'scissors') {
                 computerCount++;
+                console.log('Lose!');
                 break;
             } else {
+                console.log('Tie!');
                 break;
             }
         case 'Scissors':
             if (computerChoice === 'paper') {
                 userCount++;
+                console.log('Win!');
                 break;
             } else if (computerChoice === 'rock') {
                 computerCount++;
+                console.log('Lose!');
                 break;
             } else {
+                console.log('Tie!');
                 break;
             }
     }
 
-    console.log(userChoice);
-    console.log(computerChoice);
+    
+    console.log(userCount);
+    console.log(computerCount);
 }
 
 function game() {
-
-    while (userCount !== 5 || computerCount !== 5) {
-
-        console.log(userCount);
-        console.log(computerCount);
-    }
 
     if (userCount > computerCount)
     {
