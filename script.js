@@ -63,7 +63,12 @@ function playRound(e) {
             }
     }
 
-    
+    if (userCount === 5) {
+        console.log('You Win!');
+    }
+    else if (computerCount === 5) {
+        console.log('Computer Wins!')
+    }
     console.log(userCount);
     console.log(computerCount);
 }
