@@ -63,6 +63,9 @@ function playRound(e) {
             }
     }
 
+    document.getElementById('u-score').textContent = `${userCount}`;
+    document.getElementById('c-score').textContent = `${computerCount}`;
+
     if (userCount === 5) {
         console.log('You Win!');
     }

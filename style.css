@@ -26,19 +26,23 @@ body {
     text-align: center;
 }
 
-.u-score, 
-.c-score, 
+.score, 
 .game {
     width: 200px;
     display: flex;
     flex-direction: column;
 }
 
-.score {
+#c-score,
+#u-score {
     font-size: 200px;
 }
 
 button {
     width: 200px;
     height: 200px;
+}
+
+p {
+    margin: 0;
 }
