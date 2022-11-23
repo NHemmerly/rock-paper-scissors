@@ -21,13 +21,21 @@ body {
 
 .scores {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: center;
 }
 
 .u-score, 
-.cpu-score {
+.c-score, 
+.game {
+    width: 200px;
     display: flex;
     flex-direction: column;
+}
+
+.score {
+    font-size: 200px;
 }
 
 button {
