@@ -21,14 +21,15 @@ function winCon (userCount, computerCount) {
 
     document.getElementById('u-score').textContent = `${userCount}`;
     document.getElementById('c-score').textContent = `${computerCount}`;
+    document.getElementById('round').textContent = `Round: ${round}`;
 
     if (userCount === 5) {
         disableButtons();
-        console.log('You Win!');
+        displayWinner("User wins!");
     }
     else if (computerCount === 5) {
         disableButtons();
-        console.log('Computer Wins!');
+        displayWinner("CPU Wins!");
     }
     
 }
@@ -49,55 +50,59 @@ function displayPlayerChoice(userChoice, computerChoice) {
 
 //Displays winner when WinCon is reached
 function displayWinner(winner) {
-
+    document.getElementById("winner").textContent = winner;
 }
 
 function playRound(e) {
 
     let computerChoice = getComputerAnswer();
     let userChoice = (e.target.innerText);
+    const userWin = "User +1";
+    const cpuWin = "CPU +1";
+    const tie = "Tie!";
 
     switch (userChoice) {
         case 'Rock':
             if (computerChoice === 'Scissors') {
                 userCount++;
-                console.log('Win!');
+                displayWinner(userWin);
                 break;
             } else if (computerChoice === 'Paper') {
                 computerCount++;
-                console.log('Lose!');
+                displayWinner(cpuWin);
                 break;
             } else {
-                console.log('Tie!');
+                displayWinner(tie);
                 break;
             }
         case 'Paper':
             if (computerChoice === 'Rock') {
                 userCount++;
-                console.log('Win!');
+                displayWinner(userWin);
                 break;
             } else if (computerChoice === 'Scissors') {
                 computerCount++;
-                console.log('Lose!');
+                displayWinner(cpuWin);
                 break;
             } else {
-                console.log('Tie!');
+                displayWinner(tie);
                 break;
             }
         case 'Scissors':
             if (computerChoice === 'Paper') {
                 userCount++;
-                console.log('Win!');
+                displayWinner(userWin);
                 break;
             } else if (computerChoice === 'Rock') {
                 computerCount++;
-                console.log('Lose!');
+                displayWinner(cpuWin);
                 break;
             } else {
-                console.log('Tie!');
+                displayWinner(tie);
                 break;
             }
     }
+    round++;
     displayPlayerChoice(userChoice, computerChoice);
     winCon(userCount, computerCount);
 
@@ -108,6 +113,7 @@ const btns = document.querySelectorAll('.btn');
 
 let computerCount = 0;
 let userCount = 0;
+let round = 0;
 
 btns.forEach(btn => btn.addEventListener('click', playRound));
 
