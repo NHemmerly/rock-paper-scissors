@@ -16,6 +16,29 @@ function getComputerAnswer() {
     return answer;
 }
 
+function winCon (userCount, computerCount) {
+
+    document.getElementById('u-score').textContent = `${userCount}`;
+    document.getElementById('c-score').textContent = `${computerCount}`;
+
+    if (userCount === 5) {
+        disableButtons();
+        console.log('You Win!');
+    }
+    else if (computerCount === 5) {
+        disableButtons();
+        console.log('Computer Wins!');
+    }
+    
+}
+
+function disableButtons() {
+    let btns = document.getElementsByClassName('btn');
+    for (btn of btns) {
+        btn.disabled = true;
+    }
+}
+
 function playRound(e) {
 
     let computerChoice = getComputerAnswer();
@@ -63,33 +86,8 @@ function playRound(e) {
             }
     }
 
-    document.getElementById('u-score').textContent = `${userCount}`;
-    document.getElementById('c-score').textContent = `${computerCount}`;
+    winCon(userCount, computerCount);
 
-    if (userCount === 5) {
-        console.log('You Win!');
-    }
-    else if (computerCount === 5) {
-        console.log('Computer Wins!')
-    }
-    console.log(userCount);
-    console.log(computerCount);
-}
-
-function game() {
-
-    if (userCount > computerCount)
-    {
-        console.log(`You win! score: ${userCount} to ${computerCount}`);
-    }
-    else if (computerCount > userCount)
-    {
-        console.log(`Computer wins! score: ${userCount} to ${computerCount}`);
-    }
-    else
-    {
-        console.log(`It's a tie! score: ${userCount} to ${computerCount}`);
-    }
 }
 
 const btns = document.querySelectorAll('.btn');
@@ -100,5 +98,4 @@ let userCount = 0;
 
 btns.forEach(btn => btn.addEventListener('click', playRound));
 
-game();
 
