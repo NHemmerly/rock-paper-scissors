@@ -16,6 +16,7 @@ function getComputerAnswer() {
     return answer;
 }
 
+//Updates score display, and decides winner
 function winCon (userCount, computerCount) {
 
     document.getElementById('u-score').textContent = `${userCount}`;
@@ -32,11 +33,22 @@ function winCon (userCount, computerCount) {
     
 }
 
+//Selects and disables buttons
 function disableButtons() {
     let btns = document.getElementsByClassName('btn');
     for (btn of btns) {
         btn.disabled = true;
     }
+}
+
+//Displays each player's choice each playRound
+function displayPlayerChoice(userChoice, computerChoice) {
+    
+}
+
+//Displays winner when WinCon is reached
+function displayWinner(winner) {
+
 }
 
 function playRound(e) {
