@@ -4,13 +4,13 @@ function getComputerAnswer() {
     
     switch (answer){
         case 0:
-            answer = 'rock';
+            answer = 'Rock';
             break;
         case 1:
-            answer = 'paper';
+            answer = 'Paper';
             break;
         default:
-            answer = 'scissors';
+            answer = 'Scissors';
             break;
     }
     return answer;
@@ -43,7 +43,8 @@ function disableButtons() {
 
 //Displays each player's choice each playRound
 function displayPlayerChoice(userChoice, computerChoice) {
-    
+    document.getElementById("c-choice").textContent = computerChoice;
+    document.getElementById("u-choice").textContent = userChoice;
 }
 
 //Displays winner when WinCon is reached
@@ -58,11 +59,11 @@ function playRound(e) {
 
     switch (userChoice) {
         case 'Rock':
-            if (computerChoice === 'scissors') {
+            if (computerChoice === 'Scissors') {
                 userCount++;
                 console.log('Win!');
                 break;
-            } else if (computerChoice === 'paper') {
+            } else if (computerChoice === 'Paper') {
                 computerCount++;
                 console.log('Lose!');
                 break;
@@ -71,11 +72,11 @@ function playRound(e) {
                 break;
             }
         case 'Paper':
-            if (computerChoice === 'rock') {
+            if (computerChoice === 'Rock') {
                 userCount++;
                 console.log('Win!');
                 break;
-            } else if (computerChoice === 'scissors') {
+            } else if (computerChoice === 'Scissors') {
                 computerCount++;
                 console.log('Lose!');
                 break;
@@ -84,11 +85,11 @@ function playRound(e) {
                 break;
             }
         case 'Scissors':
-            if (computerChoice === 'paper') {
+            if (computerChoice === 'Paper') {
                 userCount++;
                 console.log('Win!');
                 break;
-            } else if (computerChoice === 'rock') {
+            } else if (computerChoice === 'Rock') {
                 computerCount++;
                 console.log('Lose!');
                 break;
@@ -97,7 +98,7 @@ function playRound(e) {
                 break;
             }
     }
-
+    displayPlayerChoice(userChoice, computerChoice);
     winCon(userCount, computerCount);
 
 }

@@ -38,6 +38,10 @@ body {
     justify-content: space-between;
 }
 
+.state p {
+    flex: 1;
+}
+
 #c-score,
 #u-score {
     font-size: 200px;
