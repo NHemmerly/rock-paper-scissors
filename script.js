@@ -44,8 +44,16 @@ function disableButtons() {
 
 //Displays each player's choice each playRound
 function displayPlayerChoice(userChoice, computerChoice) {
-    document.getElementById("c-choice").textContent = computerChoice;
-    document.getElementById("u-choice").textContent = userChoice;
+
+    let firstUChild = document.getElementById("u-choice").firstChild;
+    let firstCChild = document.getElementById("c-choice").firstChild;
+    let elemUChoice = document.createElement("img");
+    let elemCChoice = document.createElement("img");
+
+    elemUChoice.src = `./images/${userChoice}.png`;
+    elemCChoice.src = `./images/${computerChoice}.png`;
+    document.getElementById("c-choice").replaceChild(elemCChoice, firstCChild);
+    document.getElementById("u-choice").replaceChild(elemUChoice, firstUChild);
 }
 
 //Displays winner when WinCon is reached
@@ -53,11 +61,9 @@ function displayWinner(winner) {
     document.getElementById("winner").textContent = winner;
 }
 
-function playRound(e) {
+//Decide round outcome logic
+function decideRound(userChoice, computerChoice) {
 
-    let computerChoice = getComputerAnswer();
-    let userChoice = (e.target.id);
-    console.log(userChoice);
     const userWin = "User +1";
     const cpuWin = "CPU +1";
     const tie = "Tie!";
@@ -104,6 +110,15 @@ function playRound(e) {
             }
     }
     round++;
+}
+
+function playRound(e) {
+
+    let computerChoice = getComputerAnswer();
+    let userChoice = (e.target.id);
+    
+
+    decideRound(userChoice, computerChoice);
     displayPlayerChoice(userChoice, computerChoice);
     winCon(userCount, computerCount);
 

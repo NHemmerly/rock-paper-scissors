@@ -16,7 +16,8 @@ body {
 
 .btns {
     display: flex;
-    gap: 50px;
+    gap: 120px;
+    margin: 20px;
 }
 
 .scores {
@@ -31,24 +32,44 @@ body {
     width: 200px;
     display: flex;
     flex-direction: column;
+    flex: 1;
+    
+}
+
+.game {
+    flex: 2;
 }
 
 .state {
     display: flex;
     justify-content: space-between;
+    border: 5px solid black;
 }
 
 .state p {
     flex: 1;
 }
 
+.vs {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
 #round {
     flex: 1;
+    margin: 20px;
 }
 
 #c-score,
 #u-score {
     font-size: 200px;
+}
+
+#u-choice,
+#c-choice {
+    width: 200px;
+    height: 200px;
 }
 
 button {
