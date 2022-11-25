@@ -56,7 +56,8 @@ function displayWinner(winner) {
 function playRound(e) {
 
     let computerChoice = getComputerAnswer();
-    let userChoice = (e.target.innerText);
+    let userChoice = (e.target.id);
+    console.log(userChoice);
     const userWin = "User +1";
     const cpuWin = "CPU +1";
     const tie = "Tie!";
