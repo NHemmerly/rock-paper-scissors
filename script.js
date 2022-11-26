@@ -62,8 +62,8 @@ function displayPlayerChoice(userChoice, computerChoice) {
     let elemUChoice = document.createElement("img");
     let elemCChoice = document.createElement("img");
 
-    elemUChoice.src = `./images/${userChoice}.png`;
-    elemCChoice.src = `./images/${computerChoice}.png`;
+    elemUChoice.src = `/images/${userChoice}.png`;
+    elemCChoice.src = `/images/${computerChoice}.png`;
     document.getElementById("c-choice").replaceChild(elemCChoice, firstCChild);
     document.getElementById("u-choice").replaceChild(elemUChoice, firstUChild);
 }
