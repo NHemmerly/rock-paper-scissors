@@ -81,12 +81,12 @@ function decideRound(userChoice, computerChoice) {
     const tie = "Tie!";
 
     switch (userChoice) {
-        case 'Rock':
-            if (computerChoice === 'Scissors') {
+        case 'rock':
+            if (computerChoice === 'scissors') {
                 userCount++;
                 displayWinner(userWin);
                 break;
-            } else if (computerChoice === 'Paper') {
+            } else if (computerChoice === 'paper') {
                 computerCount++;
                 displayWinner(cpuWin);
                 break;
@@ -94,12 +94,12 @@ function decideRound(userChoice, computerChoice) {
                 displayWinner(tie);
                 break;
             }
-        case 'Paper':
-            if (computerChoice === 'Rock') {
+        case 'paper':
+            if (computerChoice === 'rock') {
                 userCount++;
                 displayWinner(userWin);
                 break;
-            } else if (computerChoice === 'Scissors') {
+            } else if (computerChoice === 'scissors') {
                 computerCount++;
                 displayWinner(cpuWin);
                 break;
@@ -107,12 +107,12 @@ function decideRound(userChoice, computerChoice) {
                 displayWinner(tie);
                 break;
             }
-        case 'Scissors':
-            if (computerChoice === 'Paper') {
+        case 'scissors':
+            if (computerChoice === 'paper') {
                 userCount++;
                 displayWinner(userWin);
                 break;
-            } else if (computerChoice === 'Rock') {
+            } else if (computerChoice === 'rock') {
                 computerCount++;
                 displayWinner(cpuWin);
                 break;
