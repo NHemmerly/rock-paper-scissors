@@ -1,3 +1,13 @@
+const btns = document.querySelectorAll('.btn');
+const playAgain = document.getElementById('play-again');
+const playAgainButton = playAgain.firstChild;
+
+let computerCount = 0;
+let userCount = 0;
+let round = 0;
+
+playAgain.style.visibility = 'hidden';
+
 //Random number generator selects a number from 0 to 2
 function getComputerAnswer() {
     let answer = Math.floor(Math.random() * 3);
@@ -26,10 +36,12 @@ function winCon (userCount, computerCount) {
     if (userCount === 5) {
         disableButtons();
         displayWinner("User wins!");
+        playAgain.style.visibility = 'visible';
     }
     else if (computerCount === 5) {
         disableButtons();
         displayWinner("CPU Wins!");
+        playAgain.style.visibility = 'visible';
     }
     
 }
@@ -112,6 +124,12 @@ function decideRound(userChoice, computerChoice) {
     round++;
 }
 
+function reloadGame() {
+    playAgain.addEventListener('click', () => {
+        location.reload();
+    });
+}
+
 function playRound(e) {
 
     let computerChoice = getComputerAnswer();
@@ -121,16 +139,11 @@ function playRound(e) {
     decideRound(userChoice, computerChoice);
     displayPlayerChoice(userChoice, computerChoice);
     winCon(userCount, computerCount);
+    reloadGame();
 
 }
 
-const btns = document.querySelectorAll('.btn');
-
-
-let computerCount = 0;
-let userCount = 0;
-let round = 0;
-
 btns.forEach(btn => btn.addEventListener('click', playRound));
+
 
 
