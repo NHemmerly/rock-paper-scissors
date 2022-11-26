@@ -14,13 +14,13 @@ function getComputerAnswer() {
     
     switch (answer){
         case 0:
-            answer = 'Rock';
+            answer = 'rock';
             break;
         case 1:
-            answer = 'Paper';
+            answer = 'paper';
             break;
         default:
-            answer = 'Scissors';
+            answer = 'scissors';
             break;
     }
     return answer;
